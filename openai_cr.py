@@ -1,5 +1,6 @@
 import openai
 import os
+import re
 import json
 from rich.table import Table
 from rich.console import Console
@@ -51,15 +52,16 @@ def load_code_from_file(filename):
         return file.read()
 
 
-def review_directory(directory):
+def review_directory(directory, extension=None):
     reviews = []
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if file.endswith(".js"):  # or whatever file type you're interested in
+            if extension is None or file.endswith(extension):
                 filename = os.path.join(root, file)
                 code = load_code_from_file(filename)
                 review = review_code(code, filename)
                 reviews.append(review)
+    print(reviews)
     return reviews
 
 
@@ -89,8 +91,3 @@ def display_reviews(reviews, sort_by="filename"):
 
     console = Console()
     console.print(table)
-
-
-# Replace 'your_directory' with the path to the directory you want to review
-reviews = review_directory("/home/alexandre/Development/neuroshimah/src/")
-display_reviews(reviews, sort_by="codeQuality")
