@@ -45,6 +45,7 @@ async def review_code(code, filename):
     llm = ChatOpenAI(temperature=0.8, model="gpt-3.5-turbo")
     chain = LLMChain(llm=llm, prompt=template)
     review = await chain.arun(code=code, filename=filename)
+    logger.debug(review)
     return review
 
 

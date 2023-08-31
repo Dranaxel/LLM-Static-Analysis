@@ -1,6 +1,6 @@
 import typer
 import asyncio
-from openai_cr import review_directory, display_reviews
+from chain import review_directory, display_reviews
 
 
 def main(regexp: str, path: str):
