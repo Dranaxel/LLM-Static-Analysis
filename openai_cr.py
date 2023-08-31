@@ -20,6 +20,7 @@ async def review_code(code, filename):
         """
      Please review the following code according to the criteria outlined below. Your review should be returned as a JSON objects. Each JSON object should contain the following keys:
 
+    2. "filename": the name of the file
     2. "codeQuality": A score out of ten that represents the overall quality of the code. Please consider factors such as readability, efficiency, and adherence to best practices when determining this score.
     3. "goodPoints": An array of points that highlight the strengths of the code. This could include things like effective use of data structures, good commenting, efficient algorithms, etc.
     4. "badPoints": An array of points that highlight areas where the code could be improved. This could include things like unnecessary repetition, lack of comments, inefficient algorithms, etc.
@@ -28,7 +29,7 @@ async def review_code(code, filename):
 
     Example of expected output:
         {{
-        "filename": {{filename}},
+            "filename": {{filename}},
             "codeQuality": 5,
             "goodPoints": ["Efficient algorithms"],
             "badPoints": ["Lack of comments", "Inefficient data structures"]
@@ -78,7 +79,7 @@ def display_reviews(reviews, sort_by="filename"):
         color = (
             "green"
             if review["codeQuality"] > 9
-            else "lightgreen"
+            else "bright_green"
             if review["codeQuality"] > 7
             else "yellow"
             if review["codeQuality"] > 5
