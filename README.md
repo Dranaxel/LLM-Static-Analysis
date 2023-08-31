@@ -36,3 +36,11 @@ The cli is powered by the awesome [Typer](https://typer.tiangolo.com/) so it sho
 │ --help          Show this message and exit.                                                                                                                                                                       │
 ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
+
+for logs you can activate them with `LOGLEVEL=DEBUG` environment variable
+
+# ToDo
+
+[] Use HF LLM
+[] Add onefile mode
+[] Allow embedings from... ?
