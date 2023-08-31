@@ -10,6 +10,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from loguru import logger
 
+logger.remove()
 LOGLEVEL = os.environ.get("LOGLEVEL", "INFO").upper()
 logger.add(sink=sys.stderr, level=LOGLEVEL)
 
