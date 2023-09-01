@@ -24,6 +24,8 @@ This project aims to create a CLI allowing static analysis on files to get recom
 if you use pipenv: `pipenv install`
 otherwise: `pip install -r requirements.txt`
 
+It actually woks only with openai gpt3, so you need to export your Openai api key via OPENAI_API_KEY
+
 The cli is powered by the awesome [Typer](https://typer.tiangolo.com/) so it should be pretty self explainatory: `python main.py --help`
 ```
  Usage: main.py [OPTIONS] REGEXP PATH                                                                                                                                                                                
