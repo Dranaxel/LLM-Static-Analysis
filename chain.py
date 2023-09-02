@@ -1,3 +1,4 @@
+import re
 import os
 import json
 import sys
@@ -55,15 +56,20 @@ def load_code_from_file(filename):
         return file.read()
 
 
-async def review_directory(directory, extension=None):
+async def review_directory(directory, extension=None, include_hidden=False):
     reviews = []
     for root, dirs, files in os.walk(directory):
         logger.debug(files)
         for file in files:
-            if extension is None or file.endswith(extension):
+            if not include_hidden and file.startswith("."):
+                continue
+            if extension is None or re.match(extension, file):
                 filename = os.path.join(root, file)
                 code = load_code_from_file(filename)
                 reviews.append(review_code(code, filename))
+    if len(reviews) == 0:
+        logger.info("Nothing to analyse, exiting")
+        exit(0)
     reviews = await asyncio.gather(*reviews)
     reviews = [json.loads(_) for _ in reviews]
     return reviews
