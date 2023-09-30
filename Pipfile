@@ -8,6 +8,9 @@ langchain = "*"
 openai = "*"
 typer = "*"
 rich = "*"
+chromadb = "*"
+unstructured = "*"
+tiktoken = "*"
 
 [dev-packages]
 

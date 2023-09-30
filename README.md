@@ -46,3 +46,4 @@ for logs you can activate them with `LOGLEVEL=DEBUG` environment variable
 [] Use HF LLM
 [] Add onefile mode
 [] Allow embedings from... ?
+[] Add action like 'tests' or 'global analysis'
