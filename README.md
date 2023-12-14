@@ -44,6 +44,7 @@ for logs you can activate them with `LOGLEVEL=DEBUG` environment variable
 # ToDo
 
 [] Use HF LLM
+[] run on multiple files
 [] Add onefile mode
 [] Allow embedings from... ?
 [] Add action like 'tests' or 'global analysis'

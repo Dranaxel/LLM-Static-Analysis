@@ -24,6 +24,7 @@ def glob_files(directory, glob):  # pylint: disable=redefined-builtin
         if fnmatch.fnmatch(f, glob)
     ]
 
+
 def load_code_from_file(file_path):
     """
     Load code from a file.
@@ -38,6 +39,8 @@ def load_code_from_file(file_path):
     str
         The code.
     """
-    with open(file_path, 'r') as f:
-        return f.read()
-
+    with open(file_path, "r") as f:
+        return f"""
+        filename: {file_path}
+        {f.read()}
+        """
